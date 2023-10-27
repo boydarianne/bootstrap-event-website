@@ -58,33 +58,60 @@ const eventObject = {
 };
 
 //constructor function for events
-function EventDetails(name, date, time, location) {
+function EventDetails(name, date, time, location, briefDesc, imgPath) {
   this.name = name;
   this.date = date;
   this.time = time;
   this.location = location;
+  this.briefDesc = briefDesc;
+  this.imgPath  = imgPath;
+  this.render = function(){
+    //to-do dom manipulation to render all of this information
+  }
 }
-//constructor function for biography
-function Bio() {
-  this.Bio = [];
+//constructor function for instantiations (done)
+function Events() {
+  this.Events = [];
+
+  this.addEvent = function (eventToAdd) {
+    this.Events.push(eventToAdd);
+  };
 }
+
+const events = new Events()
+
+//add img path to each of these instantiations (done)
+//to-do add brief description 
 
 const artExplosion = new EventDetails(
   "Art Explosion",
   "2023-10-31",
   "13:30:00",
-  "superdome"
+  "superdome",
+  "Enjoy beautiful artwork and tasty food!",
+"img/art stock photo 1.webp"
 );
+
 const colorJam = new EventDetails(
-    "Color Jam",
-    "2023-11-11",
-    "12:00:00",
-    "smoothie king center"
-)
+  "Color Jam",
+  "2023-11-11",
+  "12:00:00",
+  "smoothie king center",
+  "Watch as amazing artist perform body painting.",
+  "img/art stock photo replace.webp"
+);
 const artBasel = new EventDetails(
-    "Art Basel",
-    "2024-12-08",
-    "11:15:00",
-    "Miami Beach Convention Center"
-)
+  "Art Basel",
+  "2024-12-08",
+  "11:15:00",
+  "Miami Beach Convention Center",
+  "Annual art event featuring artist from all over the world",
+  "img/art stock photo 3.jpg"
+);
+
+events.addEvent(artExplosion)
+events.addEvent(colorJam)
+events.addEvent(artBasel)
+
+//filter method 
 
